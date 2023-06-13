@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "643449097254",
+    "project_id": "aziz-foods",
+    "storage_bucket": "aziz-foods.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643449097254:android:6ac7e833f353b6b4b36ae7",
+        "android_client_info": {
+          "package_name": "com.azizfood.delivery_boy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643449097254-13ta10hlvlhmkhqs6r5p5t7v5n07rdng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUCQ84uURa2U8wCLCzJFCdFkBQqdVmJTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643449097254-13ta10hlvlhmkhqs6r5p5t7v5n07rdng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643449097254:android:03de7ff6aabf188eb36ae7",
+        "android_client_info": {
+          "package_name": "com.azizfood.restaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643449097254-13ta10hlvlhmkhqs6r5p5t7v5n07rdng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUCQ84uURa2U8wCLCzJFCdFkBQqdVmJTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643449097254-13ta10hlvlhmkhqs6r5p5t7v5n07rdng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643449097254:android:f2867df3cf5e8e14b36ae7",
+        "android_client_info": {
+          "package_name": "com.azizfood.userapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643449097254-a2raghrbcpotg4ijj52qdb1lp6c7bfpi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.azizfood.userapp",
+            "certificate_hash": "316cb92edfeb8c2d7869873ae1fb92f7a112d89b"
+          }
+        },
+        {
+          "client_id": "643449097254-13ta10hlvlhmkhqs6r5p5t7v5n07rdng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUCQ84uURa2U8wCLCzJFCdFkBQqdVmJTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643449097254-13ta10hlvlhmkhqs6r5p5t7v5n07rdng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
