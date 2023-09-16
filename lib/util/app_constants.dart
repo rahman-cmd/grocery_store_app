@@ -2,8 +2,8 @@ import 'package:sixam_mart_store/data/model/response/language_model.dart';
 import 'package:sixam_mart_store/util/images.dart';
 
 class AppConstants {
-  static const String appName = 'Aziz Food Restaurant';
-  static const double appVersion = 2.4;
+  static const String appName = 'Aziz Shop';
+  static const double appVersion = 2.6;
 
   static const String baseUrl = 'https://azizfood.com';
   static const String configUri = '/api/v1/config';
