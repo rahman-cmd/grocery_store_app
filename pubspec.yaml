@@ -42,11 +42,12 @@ dependencies:
   cached_network_image: ^3.2.1
   flutter_pos_printer_platform: ^1.1.0
   esc_pos_utils: ^1.1.0
-  screenshot: ^1.2.3
+
   http_parser: ^4.0.2
   path: ^1.8.1
-  intl: ^0.17.0
+  intl: ^0.18.0
   image: ^3.0.2
+  screenshot: ^2.1.0
 
 dependency_overrides:
   modal_bottom_sheet: ^3.0.0-pre
