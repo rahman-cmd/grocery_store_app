@@ -130,8 +130,10 @@ class SplashScreenState extends State<SplashScreen> {
           padding: const EdgeInsets.all(Dimensions.paddingSizeLarge),
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             Image.asset(Images.logo, width: 200),
-            // SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
-            //Text(AppConstants.APP_NAME, style: robotoMedium.copyWith(fontSize: 25), textAlign: TextAlign.center),
+            const SizedBox(height: Dimensions.paddingSizeLarge),
+            Text(AppConstants.appName,
+                style: robotoMedium.copyWith(fontSize: 25),
+                textAlign: TextAlign.center),
             const SizedBox(height: Dimensions.paddingSizeSmall),
             // Text('suffix_name'.tr, style: robotoMedium, textAlign: TextAlign.center),
           ]),

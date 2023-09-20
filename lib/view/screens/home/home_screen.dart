@@ -108,7 +108,7 @@ class HomeScreen extends StatelessWidget {
                             onPressed: () {
                               final Uri phoneLaunchUri = Uri(
                                 scheme: 'tel',
-                                path: "01770991500",
+                                path: AppConstants.helpLine,
                               );
                               launchUrl(phoneLaunchUri);
                             },
@@ -119,7 +119,8 @@ class HomeScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text("Help Line", style: robotoMedium),
-                                Text("01770991500"),
+                                Text(AppConstants.helpLine,
+                                    style: robotoRegular),
                               ],
                             ),
                           )),
