@@ -28,7 +28,7 @@
   "reset_password": "Reset Password",
   "order_id": "Order ID",
   "cash_on_delivery": "Cash On Delivery",
-  "digital_payment": "Digital Payment",
+  "digital_payment": "Card Payment (visa, master, etc.)",
   "paid": "Paid",
   "unpaid": "Unpaid",
   "pending": "Pending",
