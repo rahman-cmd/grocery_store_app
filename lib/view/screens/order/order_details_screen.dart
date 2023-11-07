@@ -1109,6 +1109,20 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen>
                                                             AppConstants
                                                                 .confirmed,
                                                             back: true);
+
+                                                    // Get.dialog(Dialog(
+                                                    //   shape: RoundedRectangleBorder(
+                                                    //       borderRadius: BorderRadius
+                                                    //           .circular(Dimensions
+                                                    //               .radiusSmall)),
+                                                    //   child: InVoicePrintScreen(
+                                                    //       order: order,
+                                                    //       orderDetails:
+                                                    //           orderController
+                                                    //               .orderDetailsModel,
+                                                    //       isPrescriptionOrder:
+                                                    //           isPrescriptionOrder),
+                                                    // ));
                                                   },
                                                 ),
                                                 barrierDismissible: false);
@@ -1135,10 +1149,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen>
                                                 onYesPressed: () {
                                                   orderController
                                                       .updateOrderStatus(
-                                                          widget.orderId,
-                                                          AppConstants
-                                                              .confirmed,
-                                                          back: true);
+                                                    widget.orderId,
+                                                    AppConstants.confirmed,
+                                                    back: true,
+                                                  );
                                                 },
                                                 onNoPressed: () {
                                                   if (cancelPermission!) {
