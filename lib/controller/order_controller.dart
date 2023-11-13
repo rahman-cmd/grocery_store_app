@@ -113,15 +113,15 @@ class OrderController extends GetxController implements GetxService {
       _runningOrders = [
         RunningOrderModel(status: 'pending', orderList: []),
         RunningOrderModel(status: 'confirmed', orderList: []),
-        RunningOrderModel(
-            status: Get.find<SplashController>()
-                    .configModel!
-                    .moduleConfig!
-                    .module!
-                    .showRestaurantText!
-                ? 'cooking'
-                : 'processing',
-            orderList: []),
+        // RunningOrderModel(
+        //     status: Get.find<SplashController>()
+        //             .configModel!
+        //             .moduleConfig!
+        //             .module!
+        //             .showRestaurantText!
+        //         ? 'cooking'
+        //         : 'processing',
+        //     orderList: []),
         RunningOrderModel(status: 'ready_for_handover', orderList: []),
         RunningOrderModel(status: 'food_on_the_way', orderList: []),
       ];
@@ -287,7 +287,6 @@ class OrderController extends GetxController implements GetxService {
     _runningOrders![1].orderList = [];
     _runningOrders![2].orderList = [];
     _runningOrders![3].orderList = [];
-    _runningOrders![4].orderList = [];
     for (var order in _runningOrderList!) {
       if (order.orderStatus == 'pending' &&
           (Get.find<SplashController>().configModel!.orderConfirmationModel !=
@@ -304,15 +303,17 @@ class OrderController extends GetxController implements GetxService {
               (order.orderStatus == 'accepted' && order.confirmed != null)) &&
           (_campaignOnly ? order.itemCampaign == 1 : true)) {
         _runningOrders![1].orderList.add(order);
-      } else if (order.orderStatus == 'processing' &&
-          (_campaignOnly ? order.itemCampaign == 1 : true)) {
-        _runningOrders![2].orderList.add(order);
       } else if (order.orderStatus == 'handover' &&
           (_campaignOnly ? order.itemCampaign == 1 : true)) {
-        _runningOrders![3].orderList.add(order);
-      } else if (order.orderStatus == 'picked_up' &&
+        _runningOrders![2].orderList.add(order);
+      }
+      // else if (order.orderStatus == 'handover' &&
+      //     (_campaignOnly ? order.itemCampaign == 1 : true)) {
+      //   _runningOrders![3].orderList.add(order);
+      // }
+      else if (order.orderStatus == 'picked_up' &&
           (_campaignOnly ? order.itemCampaign == 1 : true)) {
-        _runningOrders![4].orderList.add(order);
+        _runningOrders![3].orderList.add(order);
       }
     }
     update();

@@ -1109,20 +1109,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen>
                                                             AppConstants
                                                                 .confirmed,
                                                             back: true);
-
-                                                    // Get.dialog(Dialog(
-                                                    //   shape: RoundedRectangleBorder(
-                                                    //       borderRadius: BorderRadius
-                                                    //           .circular(Dimensions
-                                                    //               .radiusSmall)),
-                                                    //   child: InVoicePrintScreen(
-                                                    //       order: order,
-                                                    //       orderDetails:
-                                                    //           orderController
-                                                    //               .orderDetailsModel,
-                                                    //       isPrescriptionOrder:
-                                                    //           isPrescriptionOrder),
-                                                    // ));
                                                   },
                                                 ),
                                                 barrierDismissible: false);
@@ -1130,7 +1116,163 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen>
                                         )),
                                       ]),
                                     )
-                                  : SliderButton(
+                                  : Padding(
+                                      padding: const EdgeInsets.all(
+                                          Dimensions.paddingSizeSmall),
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          minimumSize:
+                                              const Size.fromHeight(50),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                                Dimensions.radiusSmall),
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          if (controllerOrderModer
+                                                      .orderStatus ==
+                                                  'pending' &&
+                                              (controllerOrderModer.orderType ==
+                                                      'take_away' ||
+                                                  restConfModel ||
+                                                  selfDelivery)) {
+                                            Get.dialog(
+                                              ConfirmationDialog(
+                                                icon: Images.warning,
+                                                title: 'are_you_sure_to_confirm'
+                                                    .tr,
+                                                description:
+                                                    'you_want_to_confirm_this_order'
+                                                        .tr,
+                                                onYesPressed: () {
+                                                  orderController
+                                                      .updateOrderStatus(
+                                                    widget.orderId,
+                                                    AppConstants.confirmed,
+                                                    back: true,
+                                                  );
+                                                },
+                                                onNoPressed: () {
+                                                  if (cancelPermission!) {
+                                                    orderController
+                                                        .updateOrderStatus(
+                                                            widget.orderId,
+                                                            AppConstants
+                                                                .canceled,
+                                                            back: true);
+                                                  } else {
+                                                    Get.back();
+                                                  }
+                                                },
+                                              ),
+                                              barrierDismissible: false,
+                                            );
+                                          } else if (controllerOrderModer
+                                                  .orderStatus ==
+                                              'processing') {
+                                            Get.find<OrderController>()
+                                                .updateOrderStatus(
+                                              widget.orderId,
+                                              AppConstants.handover,
+                                            );
+                                          } else if (controllerOrderModer
+                                                      .orderStatus ==
+                                                  'confirmed' ||
+                                              (controllerOrderModer
+                                                          .orderStatus ==
+                                                      'accepted' &&
+                                                  controllerOrderModer
+                                                          .confirmed !=
+                                                      null)) {
+                                            debugPrint(
+                                                'accepted & confirm call----------------');
+                                            Get.find<OrderController>()
+                                                .updateOrderStatus(
+                                              controllerOrderModer.id,
+                                              AppConstants.handover,
+                                            );
+                                          } else if ((controllerOrderModer
+                                                      .orderStatus ==
+                                                  'handover' &&
+                                              (controllerOrderModer.orderType ==
+                                                      'take_away' ||
+                                                  selfDelivery))) {
+                                            if (Get.find<SplashController>()
+                                                    .configModel!
+                                                    .orderDeliveryVerification! ||
+                                                controllerOrderModer
+                                                        .paymentMethod ==
+                                                    'cash_on_delivery') {
+                                              Get.bottomSheet(
+                                                VerifyDeliverySheet(
+                                                  orderID:
+                                                      controllerOrderModer.id,
+                                                  verify: Get.find<
+                                                          SplashController>()
+                                                      .configModel!
+                                                      .orderDeliveryVerification,
+                                                  orderAmount:
+                                                      controllerOrderModer
+                                                          .orderAmount,
+                                                  cod: controllerOrderModer
+                                                          .paymentMethod ==
+                                                      'cash_on_delivery',
+                                                ),
+                                                isScrollControlled: true,
+                                              );
+                                            } else {
+                                              Get.find<OrderController>()
+                                                  .updateOrderStatus(
+                                                controllerOrderModer.id,
+                                                AppConstants.delivered,
+                                              );
+                                            }
+                                          }
+                                        },
+                                        child: Text(
+                                          (controllerOrderModer.orderStatus ==
+                                                      'pending' &&
+                                                  (controllerOrderModer
+                                                              .orderType ==
+                                                          'take_away' ||
+                                                      restConfModel ||
+                                                      selfDelivery))
+                                              ? 'swipe_to_confirm_order'.tr
+                                              : (controllerOrderModer
+                                                              .orderStatus ==
+                                                          'confirmed' ||
+                                                      (controllerOrderModer
+                                                                  .orderStatus ==
+                                                              'accepted' &&
+                                                          controllerOrderModer
+                                                                  .confirmed !=
+                                                              null))
+                                                  ? Get.find<SplashController>()
+                                                          .configModel!
+                                                          .moduleConfig!
+                                                          .module!
+                                                          .showRestaurantText!
+                                                      ? 'swipe_to_cooking'.tr
+                                                      : 'swipe_to_process'.tr
+                                                  : (controllerOrderModer
+                                                              .orderStatus ==
+                                                          'processing')
+                                                      ? 'swipe_if_ready_for_handover'
+                                                          .tr
+                                                      : (controllerOrderModer
+                                                                      .orderStatus ==
+                                                                  'handover' &&
+                                                              (controllerOrderModer
+                                                                          .orderType ==
+                                                                      'take_away' ||
+                                                                  selfDelivery))
+                                                          ? 'swipe_to_deliver_order'
+                                                              .tr
+                                                          : '',
+                                        ),
+                                      ),
+                                    )
+                              /*     : SliderButton(
                                       action: () {
                                         if (controllerOrderModer.orderStatus ==
                                                 'pending' &&
@@ -1292,6 +1434,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen>
                                       backgroundColor: const Color(0xffF4F7FC),
                                       baseColor: Theme.of(context).primaryColor,
                                     )
+                               */
                               : const SizedBox()
                       : const SizedBox(),
                   Padding(

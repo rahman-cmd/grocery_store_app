@@ -128,7 +128,7 @@ class HomeScreen extends StatelessWidget {
                               ? FlutterSwitch(
                                   showOnOff: true,
                                   toggleSize: 25,
-                                  value: !authController
+                                  value: authController
                                       .profileModel!.stores![0].active!,
                                   activeColor: Theme.of(context).primaryColor,
                                   inactiveColor:
